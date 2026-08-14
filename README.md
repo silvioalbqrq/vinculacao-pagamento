@@ -20,14 +20,19 @@ Fornecer um guia claro, organizado e acessível para:
 
 ```
 vinculacao-pagamento/
-├── index.html          # Página principal (HTML semântico)
+├── index.html          # Página principal (self-contained: CSS + JS embutidos)
 ├── css/
-│   └── styles.css      # Estilos principais (design corporativo e responsivo)
+│   └── styles.css      # Versão modular do CSS (para manutenção)
 ├── js/
-│   └── main.js         # Script de interatividade (FAQ + navegação suave)
+│   └── main.js         # Versão modular do JS (para manutenção)
 ├── assets/             # Pasta reservada para imagens/ícones futuros
-└── README.md           # Esta documentação
+├── README.md           # Esta documentação
+└── .gitignore
 ```
+
+> **Importante:** O `index.html` contém o CSS e o JavaScript **embutidos** (inline).  
+> Isso garante que o visual funcione corretamente no GitHub Pages mesmo se as pastas `css/` e `js/` não forem carregadas.  
+> Os arquivos em `css/` e `js/` permanecem disponíveis para quem preferir a versão modular.
 
 ---
 
