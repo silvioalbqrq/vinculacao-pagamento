@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guia técnico e corporativo sobre a Instrução Normativa 87/2025 da SEFAZ-Ceará: integração obrigatória entre meios de pagamento eletrônico (cartão, PIX) e emissão de NF-e/NFC-e.">
+  <meta name="keywords" content="IN 87/2025, SEFAZ-CE, vinculação pagamento, NF-e, NFC-e, PIX dinâmico, TEF, SmartPOS, ECONF">
+  <meta name="author" content="Silvio Albuquerque">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IN 87/2025 – Integração Automática de Pagamentos | SEFAZ-CE">
+  <meta property="og:description" content="Guia claro e técnico sobre a obrigatoriedade de vincular meios de pagamento eletrônico à emissão de NF-e e NFC-e no Ceará.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <title>IN 87/2025 – Integração Automática de Pagamentos | SEFAZ-CE</title>
+
+  <!-- Preconnect para performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Skip link para acessibilidade -->
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#" class="logo" aria-label="Página inicial – IN 87/2025 SEFAZ-CE">
+        <span class="logo-icon" aria-hidden="true">💳</span>
+        <span>IN 87/2025 • SEFAZ-CE</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#core">Core da Norma</a>
+        <a href="#xml">Grupo YA / XML</a>
+        <a href="#pix">PIX</a>
+        <a href="#fora">Fora do Estabelecimento</a>
+        <a href="#centralizacao">Centralização</a>
+        <a href="#dispensados">Dispensados</a>
+        <a href="#riscos">Riscos</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-content">
+      <span class="badge">Instrução Normativa nº 87/2025 — SEFAZ/CE</span>
+      <h1 id="hero-title">Integração Automática entre o Meio de Pagamento Eletrônico e a Emissão do Documento Fiscal</h1>
+      <p class="hero-lead">
+        A obrigatoriedade de vincular cartão, PIX dinâmico e demais meios de pagamento eletrônico à NF-e/NFC-e no mesmo instante.
+        Guia técnico e operacional para escritórios de contabilidade e empresas do Ceará.
+      </p>
+      <div class="hero-meta">
+        <span>📅 09 de julho de 2025</span>
+        <span>🏛️ SEFAZ – Governo do Estado do Ceará</span>
+        <span>⚖️ Arts. 59 e 77 do Decreto nº 35.061/2022</span>
+      </div>
+    </div>
+  </section>
+
+  <main id="conteudo-principal" class="main-content">
+
+    <!-- 1. Core da Norma -->
+    <section id="core" class="section" aria-labelledby="core-title">
+      <header class="section-header">
+        <h2 id="core-title">🎯 1. O Core da Norma: Integração Tecnológica Obrigatória (Art. 1.º)</h2>
+        <p>A regra de ouro é a vinculação automática e indissociável. Vendeu por cartão, PIX ou qualquer meio eletrônico? O comprovante tem que estar amarrado à nota no exato momento da emissão.</p>
+      </header>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.7rem;">Automação Comercial Obrigatória (§ 7.º e § 8.º)</h3>
+          <p>A integração deve ser <strong>automática</strong>. O contribuinte não pode digitar os dados de pagamento manualmente no dia a dia. É obrigatório o uso de soluções integradas:</p>
+          <ul class="bullet-list mt-1">
+            <li><strong>SmartPOS</strong> — Maquininhas modernas que rodam o sistema de frente de loja e realizam o pagamento no mesmo aparelho.</li>
+            <li><strong>TEF</strong> — Transferência Eletrônica de Fundos: PinPad conectado física ou via rede ao computador do caixa.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.7rem;">Requisitos do Comprovante (Inciso I)</h3>
+          <p>O comprovante (impresso, digital, SMS ou e-mail) precisa espelhar os dados do estabelecimento físico.</p>
+          <p class="mt-1"><strong>Ponto crítico (alínea a):</strong> O CNPJ e o nome empresarial no comprovante devem ser exatamente os do estabelecimento onde a venda ocorre. Isso coíbe o uso de maquininhas registradas em filiais com benefícios fiscais ou em CNPJs de terceiros.</p>
+        </article>
+      </div>
+
+      <aside class="highlight warning mt-2">
+        <h4>⚠️ Fim do “quebra-galho”</h4>
+        <p>Estabelecimentos que utilizam maquininhas avulsas (não integradas ao sistema) para vendas presenciais estão em desacordo com a legislação do Ceará.</p>
+      </aside>
+    </section>
+
+    <!-- 2. Grupo YA / XML -->
+    <section id="xml" class="section" aria-labelledby="xml-title">
+      <header class="section-header">
+        <h2 id="xml-title">📄 2. Preenchimento do Grupo YA (Informações de Pagamento) no XML</h2>
+        <p>A IN amarra o layout do arquivo XML às regras de validação. O sistema emissor precisa alimentar obrigatoriamente as tags abaixo.</p>
+      </header>
+
+      <div class="card">
+        <table class="data-table">
+          <caption class="text-sm text-muted" style="caption-side: bottom; padding-top: 0.5rem;">Tags obrigatórias do Grupo YA (Informações de Pagamento)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Tag</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Observação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="code">tPag</code></td>
+              <td>Código do meio de pagamento</td>
+              <td>Conforme NT 2020.006</td>
+            </tr>
+            <tr>
+              <td><code class="code">vPag</code></td>
+              <td>Valor exato do pagamento</td>
+              <td>Deve bater com o comprovante</td>
+            </tr>
+            <tr>
+              <td><code class="code">tpIntegra</code></td>
+              <td>Tipo de integração</td>
+              <td>Deve ser <strong>1</strong> (Pagamento Integrado)</td>
+            </tr>
+            <tr>
+              <td><code class="code">CNPJ</code></td>
+              <td>CNPJ da adquirente / subadquirente / intermediador</td>
+              <td>Cielo, Stone, Rede, PagSeguro, Mercado Pago etc.</td>
+            </tr>
+            <tr>
+              <td><code class="code">cAut</code></td>
+              <td>Número de autorização</td>
+              <td>O mesmo que sai no comprovante (ou endToEndId no PIX)</td>
+            </tr>
+            <tr>
+              <td><code class="code">idTermPag</code></td>
+              <td>Identificador do terminal</td>
+              <td>Quando aplicável</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2 mt-2">
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.6rem;">Fim do código genérico de Cartão</h3>
+          <p>Muitos sistemas antigos usavam códigos genéricos ou jogavam tudo em “Cartão”. A SEFAZ-CE deixa claro:</p>
+          <ul class="bullet-list mt-1">
+            <li>Crédito → obrigatoriamente <code class="code">tPag = 03</code></li>
+            <li>Débito → obrigatoriamente <code class="code">tPag = 04</code></li>
+          </ul>
+          <p class="mt-1 text-sm text-muted">Com a integração automática (TEF/SmartPOS), o próprio retorno da maquininha força o preenchimento correto.</p>
+        </article>
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.6rem;">Cruzamento de Dados (Malha Fina)</h3>
+          <p>As adquirentes enviam mensalmente relatórios detalhados para o fisco, divididos por modalidade (crédito vs. débito), prazos e taxas.</p>
+          <p class="mt-1">Se o XML declarar R$ 50 mil em débito e R$ 10 mil em crédito, mas o relatório da adquirente mostrar o inverso, a auditoria eletrônica apontará divergência e poderá gerar notificações e multas.</p>
+        </article>
+      </div>
+
+      <aside class="highlight mt-2">
+        <h4>💡 Voucher / Vale-Alimentação</h4>
+        <p>Cartões de benefício possuem códigos próprios na tabela da NT 2020.006: <code class="code">10</code> (Vale Alimentação) e <code class="code">11</code> (Vale Refeição). Não devem ser confundidos com débito comum.</p>
+      </aside>
+    </section>
+
+    <!-- 3. PIX -->
+    <section id="pix" class="section" aria-labelledby="pix-title">
+      <header class="section-header">
+        <h2 id="pix-title">📱 3. O “Raio-X” do PIX (§ 2.º e § 3.º)</h2>
+        <p>A SEFAZ-CE separou o PIX em suas nuances e elevou o nível de exigência técnica.</p>
+      </header>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.6rem;">PIX Dinâmico vs. PIX Estático</h3>
+          <ul class="bullet-list">
+            <li><strong>Código 17</strong> — PIX Dinâmico (QR Code único por venda, gerado pelo sistema)</li>
+            <li><strong>Código 20</strong> — PIX Estático (plaquinha fixa no balcão ou chave passada de boca)</li>
+          </ul>
+          <p class="mt-1">A IN exige vinculação automática (§ 7.º e § 8.º). O uso de PIX Estático/Manual torna-se praticamente inviável ou irregular para os contribuintes afetados, forçando a adoção do PIX Dinâmico integrado.</p>
+        </article>
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.6rem;">Exigência crítica: endToEndId (§ 3.º)</h3>
+          <p>No PIX, o campo <code class="code">cAut</code> deve ser preenchido obrigatoriamente com o <strong>endToEndId</strong> (e2eid) gerado pelo Banco Central.</p>
+          <p class="mt-1">É uma chave alfanumérica de 32 caracteres (começa com “E”, seguida do código do banco, data, hora e string aleatória).</p>
+          <p class="mt-1 text-sm text-muted">Exemplo fictício: <code class="code">E00000000202606181230abcdefgh1234</code></p>
+        </article>
+      </div>
+
+      <article class="card mt-2">
+        <h3 style="color: var(--primary); margin-bottom: 0.7rem;">Fluxo técnico obrigatório para PIX Dinâmico</h3>
+        <ol style="padding-left: 1.4rem; color: var(--text-light);">
+          <li style="margin-bottom: 0.4rem;">Sistema de caixa gera o QR Code dinâmico</li>
+          <li style="margin-bottom: 0.4rem;">Aguarda a API do banco/adquirente confirmar o recebimento</li>
+          <li style="margin-bottom: 0.4rem;">Captura o <code class="code">endToEndId</code> devolvido pela API</li>
+          <li style="margin-bottom: 0.4rem;">Injeta essa string de 32 caracteres na tag <code class="code">&lt;cAut&gt;</code></li>
+          <li>Só então envia o XML da NFC-e/NF-e para a SEFAZ</li>
+        </ol>
+        <aside class="highlight danger mt-2" style="margin-bottom: 0;">
+          <h4>⚠️ Cruzamento eletrônico severo</h4>
+          <p>A SEFAZ cruzará o endToEndId informado na nota com os relatórios que os bancos e instituições de pagamento enviam diretamente para o fisco. Código em branco, inventado ou divergente = autuação por preenchimento incorreto ou omissão de dados fiscais.</p>
+        </aside>
+      </article>
+    </section>
+
+    <!-- 4. Fora do Estabelecimento -->
+    <section id="fora" class="section" aria-labelledby="fora-title">
+      <header class="section-header">
+        <h2 id="fora-title">🚚 4. Operações Fora do Estabelecimento (§ 4.º)</h2>
+        <p>Vendas em trânsito, entregas, pronta-entrega, ambulantes e feiras.</p>
+      </header>
+
+      <div class="card">
+        <table class="data-table">
+          <caption class="text-sm text-muted" style="caption-side: bottom; padding-top: 0.5rem;">Matriz de preenchimento da tag indPres</caption>
+          <thead>
+            <tr>
+              <th scope="col">Tipo de Documento</th>
+              <th scope="col">Tag &lt;indPres&gt;</th>
+              <th scope="col">Significado</th>
+              <th scope="col">Cenário Prático</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>NFC-e</strong></td>
+              <td><code class="code">1</code></td>
+              <td>Operação presencial</td>
+              <td>Vendedor vai até o cliente com SmartPOS e emite o cupom na hora, frente a frente.</td>
+            </tr>
+            <tr>
+              <td><strong>NF-e</strong> (modelo 55)</td>
+              <td><code class="code">5</code></td>
+              <td>Operação presencial, fora do estabelecimento</td>
+              <td>Venda presencial na rua/entrega (atacado, distribuição de bebidas, gás etc.).</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-1 text-sm text-muted">A diferenciação existe para blindar o cruzamento de dados de auditoria da SEFAZ-CE. Sistemas móveis precisam alterar a tag <code class="code">indPres</code> automaticamente conforme o modelo de nota escolhido.</p>
+      </div>
+    </section>
+
+    <!-- 5. Centralização -->
+    <section id="centralizacao" class="section" aria-labelledby="centralizacao-title">
+      <header class="section-header">
+        <h2 id="centralizacao-title">🏪 5. Centralização de Pagamentos / “Retira” (§ 5.º e § 6.º)</h2>
+        <p>Cliente paga em uma loja, mas retira ou recebe a mercadoria de outra (filial ou CD).</p>
+      </header>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.6rem;">A regra do jogo</h3>
+          <ul class="bullet-list">
+            <li>A tag <code class="code">CNPJPag</code> deve conter o CNPJ de onde o dinheiro entrou.</li>
+            <li>Ambos os estabelecimentos devem ter o <strong>mesmo CNPJ raiz</strong> (matriz e filial).</li>
+            <li>Ambos devem estar situados no <strong>Estado do Ceará</strong>.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.6rem;">O que a SEFAZ quer evitar</h3>
+          <p>Sem a tag CNPJPag corretamente preenchida, o cruzamento apontaria:</p>
+          <ul class="bullet-list mt-1">
+            <li><strong>Loja A:</strong> entrada de dinheiro via cartão/PIX sem nota correspondente (suspeita de omissão).</li>
+            <li><strong>Loja B:</strong> saída de mercadoria com pagamento, mas sem registro na adquirente daquele CNPJ.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. Dispensados -->
+    <section id="dispensados" class="section" aria-labelledby="dispensados-title">
+      <header class="section-header">
+        <h2 id="dispensados-title">✅ 6. Quem está DISPENSADO da vinculação automática?</h2>
+        <p>Não precisam de sistema integrado à maquininha (mas continuam obrigados a emitir a nota normalmente).</p>
+      </header>
+      <div class="card">
+        <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+          <span class="tag">👤 MEI</span>
+          <span class="tag">🛵 Delivery (entrega e pagamento em domicílio)</span>
+          <span class="tag">🛒 Vendas online em marketplaces de terceiros</span>
+          <span class="tag">📱 PIX Estático</span>
+          <span class="tag">📄 Regime Especial da Nota Fiscal Fácil (NFF)</span>
+          <span class="tag">🏢 Vendas para contribuintes do ICMS</span>
+          <span class="tag">🔄 Meios sem código de autorização individualizado</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Regras Especiais -->
+    <section id="especiais" class="section" aria-labelledby="especiais-title">
+      <header class="section-header">
+        <h2 id="especiais-title">📋 7. Regras Especiais (Resumo Operacional)</h2>
+      </header>
+      <div class="grid-3">
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.55rem;">Venda para Entrega Futura</h3>
+          <p class="text-sm text-muted">CFOP 5.922 – Simples Faturamento</p>
+          <ul class="bullet-list mt-1">
+            <li>Pagamento antecipado: nota de “fatura” (sem ICMS) com dados do pagamento integrados.</li>
+            <li>Na entrega: nota de remessa com ICMS, referenciando a anterior e <code class="code">tPag=90</code>.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.55rem;">Pagamento Posterior</h3>
+          <p class="text-sm text-muted">Carnê / Crediário / Boleto</p>
+          <p class="mt-1">Use <code class="code">tPag=91</code> (Pagamento Posterior). Quando o dinheiro entrar, registre o <strong>ECONF</strong>.</p>
+        </article>
+        <article class="card">
+          <h3 style="color: var(--primary); margin-bottom: 0.55rem;">Contingência / Queda</h3>
+          <p class="mt-1">Se a integração falhar, pode passar o pagamento separado e depois enviar obrigatoriamente o <strong>ECONF</strong>. Recomenda-se <code class="code">tPag=22</code> no documento emitido sem integração.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 8. Riscos -->
+    <section id="riscos" class="section" aria-labelledby="riscos-title">
+      <header class="section-header">
+        <h2 id="riscos-title">⚠️ 8. Riscos e Penalidades</h2>
+      </header>
+      <aside class="highlight danger">
+        <h4>Lei Estadual 18.665/2023</h4>
+        <p>O descumprimento ou atraso sujeitará as empresas a multas pesadas. O cruzamento de dados da SEFAZ com as operadoras de cartão e instituições de pagamento identificará o descompasso imediatamente.</p>
+        <p class="mt-1">Utilizar maquininha registrada em nome de terceiro ou de outro estabelecimento (mesmo da mesma empresa) pode gerar multa de até <strong>30% do valor da operação</strong> (Art. 177, VII, alíneas “l” e “o”).</p>
+      </aside>
+    </section>
+
+    <!-- 9. Próximos Passos -->
+    <section id="passos" class="section" aria-labelledby="passos-title">
+      <header class="section-header">
+        <h2 id="passos-title">🚀 9. Próximos Passos Recomendados</h2>
+        <p>O cronograma está no Anexo Único da IN 87/2025 (por faixa de faturamento e CNAE).</p>
+      </header>
+      <div class="card">
+        <div class="steps">
+          <div class="step">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h4>Levantar o faturamento acumulado</h4>
+              <p>Some o faturamento de todas as filiais no Estado do Ceará de cada cliente.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h4>Cruzar com o Anexo Único</h4>
+              <p>Identifique a data-limite de cada cliente conforme o grupo (CNAE + receita bruta).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h4>Contatar fornecedores</h4>
+              <p>Fale com o fornecedor do sistema de gestão/emissão e com a adquirente das maquininhas para iniciar a integração (TEF ou SmartPOS).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-content">
+              <h4>Validar PIX Dinâmico e endToEndId</h4>
+              <p>Garanta que o fluxo técnico de captura do endToEndId esteja funcionando antes do prazo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FAQ -->
+    <section id="faq" class="section" aria-labelledby="faq-title">
+      <header class="section-header">
+        <h2 id="faq-title">❓ 10. Principais Dúvidas (FAQ)</h2>
+        <p>Baseado na Cartilha de Orientação ao Contribuinte e na análise técnica da IN 87/2025.</p>
+      </header>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+          A vinculação vale só para NFC-e ou também para NF-e?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq-1" class="faq-answer">
+          <div class="faq-answer-inner">
+            Vale <strong>tanto para NF-e (modelo 55) quanto para NFC-e (modelo 65)</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+          Em caso de falha na integração (queda de internet ou pinpad), o que fazer?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq-2" class="faq-answer">
+          <div class="faq-answer-inner">
+            Conclua a venda com POS independente e envie posteriormente o <strong>Evento de Conciliação Financeira (ECONF)</strong>. Recomenda-se indicar <code class="code">tPag=22</code> (Pagamento Eletrônico não Informado – falha de hardware) no documento emitido sem a integração.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+          Venda a prazo (carnê/crediário): como vincular as parcelas pagas depois?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq-3" class="faq-answer">
+          <div class="faq-answer-inner">
+            No momento da venda use <code class="code">tPag=91</code>. Quando o cliente pagar as parcelas (mesmo com cartão), registre o <strong>ECONF</strong> vinculando o pagamento ao documento fiscal original. Não é necessário emitir nova nota.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+          Operação mista (serviço ISS + mercadoria ICMS) com um único pagamento no cartão?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq-4" class="faq-answer">
+          <div class="faq-answer-inner">
+            Duas opções: (1) individualizar os pagamentos (passar o cartão duas vezes) ou (2) informar o pagamento total na nota da mercadoria, colocar o valor do serviço em <code class="code">vTroco</code> e indicar nas informações adicionais que se trata de pagamento único para venda + prestação de serviço.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+          A interligação via leitura de QR Code é aceita como tecnológica?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq-5" class="faq-answer">
+          <div class="faq-answer-inner">
+            Sim. O QR Code que contém as informações do pagamento, desde que capturado pelo sistema de automação e as informações exigidas estejam devidamente inseridas no XML, é considerado interligação tecnológica.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-6">
+          Empresas que usam emissor gratuito precisam migrar de sistema?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq-6" class="faq-answer">
+          <div class="faq-answer-inner">
+            Não é obrigatória a migração. O contribuinte deve promover a integração, mas a utilização do emissor gratuito permanece válida. O ECONF pode ser preenchido e transmitido pelo próprio sistema ou manualmente quando necessário.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-7">
+          Qual a diferença prática entre PIX Dinâmico e PIX Estático para a IN 87/2025?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq-7" class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong>PIX Dinâmico (tPag=17)</strong>: QR Code gerado pelo sistema para aquela venda específica, com valor e identificador únicos. Exige endToEndId no campo cAut e integração automática.<br><br>
+            <strong>PIX Estático (tPag=20)</strong>: plaquinha fixa ou chave passada manualmente. Está dispensado da vinculação automática, mas o uso massivo dele por quem está obrigado à integração torna-se irregular na prática.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-8">
+          Como preencher o CNPJ no YA05 quando o PIX Dinâmico é gerado pela maquininha?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div id="faq-8" class="faq-answer">
+          <div class="faq-answer-inner">
+            Depende do arranjo: se a maquininha é mero meio de captura (QR Code vinculado à conta do estabelecimento), informe o CNPJ do banco do contribuinte. Se a maquininha atua como intermediadora/adquirente (recebe e repassa), informe o CNPJ da própria maquininha.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / Contato -->
+    <aside class="cta-box" id="contato" aria-labelledby="contato-title">
+      <h2 id="contato-title">Dúvidas técnicas?</h2>
+      <p>Encaminhe para a Célula de Gestão de Documentos Fiscais (CEDOF) pelo Serviço de Acesso ao Cidadão (SAC) da SEFAZ-CE.</p>
+      <a href="https://portalservicos.sefaz.ce.gov.br/servico-geral+servico-de-atendimento-ao-cidadao-sac+64adca7b48c5b8191406b1d9"
+         class="btn"
+         target="_blank"
+         rel="noopener noreferrer">
+        Acessar o SAC da SEFAZ-CE →
+      </a>
+      <p class="mt-1 text-sm" style="opacity: 0.8;">
+        Temática: Documentos Fiscais Eletrônicos → Categoria: Vinculação do Pagamento ao Documento Fiscal Eletrônico
+      </p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div>
+        <div class="footer-brand">IN 87/2025 – SEFAZ/CE</div>
+        <p>Integração e Vinculação dos Meios de Pagamento<br>aos Documentos Fiscais Eletrônicos (NF-e e NFC-e)</p>
+      </div>
+      <div>
+        <p><strong>Fontes oficiais:</strong></p>
+        <p class="mt-1">
+          • Instrução Normativa nº 87, de 9 de julho de 2025<br>
+          • Cartilha de Orientação ao Contribuinte – COAAD / CEDOT<br>
+          • Nota Técnica 2024.002 (ECONF) e NT 2020.006<br>
+          • Lei Estadual 18.665/2023
+        </p>
+      </div>
+      <div>
+        <p>
+          Secretaria da Fazenda do Estado do Ceará<br>
+          Coordenadoria de Análise Avançada de Dados – COAAD<br>
+          Célula de Documentos Fiscais – CEDOT
+        </p>
+        <p class="mt-1">
+          Repositório: <a href="https://github.com/silvioalbqrq/vinculacao-pagamento" target="_blank" rel="noopener noreferrer">silvioalbqrq/vinculacao-pagamento</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
